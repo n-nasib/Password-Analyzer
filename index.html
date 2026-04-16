@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <section class="hero">
+    <div class="top-decor">୨୧ ୨୧ ୨୧ ୨୧ ୨୧ ୨୧</div>
+    <div class="bow">🎀</div>
+    <h1>Check the Security of Your Password</h1>
+
+    <div class="password-box">
+      <label for="password" class="type-label">Type here:</label>
+      <input type="password" id="password" placeholder="Enter your password" />
+
+      <div class="show-row">
+        <input type="checkbox" id="showPassword" onclick="togglePassword()" />
+        <label for="showPassword" class="show-label">Show Password</label>
+      </div>
+
+      <button onclick="analyzePassword()">Analyze</button>
+    </div>
+
+    <div class="crack-box">
+      <p>Estimated Time to Crack:</p>
+      <div id="crackTime" class="crack-time">Waiting...</div>
+    </div>
+
+    <div class="result-box">
+      <p><strong>Measured by:</strong></p>
+      <p id="measuresUsed">
+        Length, uppercase, lowercase, numbers, symbols, repeated characters, and sequential patterns.
+      </p>
+
+      <p><strong>Password Level:</strong></p>
+      <div id="strengthLevel" class="strength-level neutral">Not analyzed yet</div>
+    </div>
+
+    <div class="bottom-decor">୨୧ ୨୧ ୨୧ ୨୧ ୨୧ ୨୧</div>
+  </section>
+
+  <section class="analysis-section" id="analysisSection">
+    <h2>Analysis</h2>
+    <div id="analysisGrid" class="analysis-grid"></div>
+  </section>
+
+  <section class="recommend-section">
+    <h2>Recommendations</h2>
+    <ul id="recommendList"></ul>
+  </section>
+
+  <section class="importance-section">
+    <h2>Why Password Security Matters</h2>
+    <p>
+      Weak passwords can be guessed quickly using automated tools. Strong passwords
+      help protect your accounts, personal information, school accounts, and private messages.
+    </p>
+    <p>
+      Longer passwords with a mix of character types and fewer predictable patterns
+      are much harder to guess.
+    </p>
+  </section>
+
+<section class="about-section">
+  <h2>🎀 Learn About the Developer</h2>
+
+  <div class="about-card">
+    <p>
+      Hi, I'm Nina — a senior Computer Information Technologies student with an
+      interest in cybersecurity, user-friendly design, and building interactive tools.
+    </p>
+
+    <p>
+      This project analyzes password strength using scoring, pattern detection,
+      and basic security principles to help users understand how secure their
+      passwords are.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <h3>🎀 Password Analyzer 🎀</h3>
+
+  <p>Made with 💖 by Nina</p>
+
+  <p>
+    💻 GitHub:
+    <a href="https://github.com/n-nasib" target="_blank" rel="noopener noreferrer">
+      github.com/n-nasib
+    </a>
+  </p>
+
+  <p class="footer-note">
+    Educational project — no passwords are stored or transmitted.
+  </p>
+</footer>
