@@ -11,18 +11,18 @@
   <section class="hero">
     <div class="top-decor">୨୧ ୨୧ ୨୧ ୨୧ ୨୧ ୨୧</div>
     <div class="bow">🎀</div>
-    <h1>Check the Security of Your Password</h1>
+    <h1>Password Analyzer</h1>
 
     <div class="password-box">
       <label for="password" class="type-label">Type here:</label>
       <input type="password" id="password" placeholder="Enter your password" />
 
       <div class="show-row">
-        <input type="checkbox" id="showPassword" onclick="togglePassword()" />
+        <input type="checkbox" id="showPassword" />
         <label for="showPassword" class="show-label">Show Password</label>
       </div>
 
-      <button onclick="analyzePassword()">Analyze</button>
+      <button id="analyzeBtn">Analyze</button>
     </div>
 
     <div class="crack-box">
@@ -56,45 +56,37 @@
   <section class="importance-section">
     <h2>Why Password Security Matters</h2>
     <p>
-      Weak passwords can be guessed quickly using automated tools. Strong passwords
-      help protect your accounts, personal information, school accounts, and private messages.
+      Weak passwords can be guessed quickly using automated tools. Strong passwords help protect your accounts, personal information, school accounts, and private messages.
     </p>
     <p>
-      Longer passwords with a mix of character types and fewer predictable patterns
-      are much harder to guess.
+      Longer passwords with a mix of character types and fewer predictable patterns are much harder to guess.
     </p>
   </section>
 
-<section class="about-section">
-  <h2>🎀 Learn About the Developer</h2>
+  <section class="about-section">
+    <h2>🎀 Learn About the Developer</h2>
+    <div class="about-card">
+      <p>
+        Hi, I'm Nina — a senior Computer Information Technologies student with an interest in cybersecurity, user-friendly design, and building interactive tools.
+      </p>
+      <p>
+        This project analyzes password strength using scoring, pattern detection, and basic security principles to help users understand how secure their passwords are.
+      </p>
+    </div>
+  </section>
 
-  <div class="about-card">
+  <footer class="footer">
+    <h3>🎀 Password Analyzer 🎀</h3>
+    <p>Made with 💖 by Nina</p>
     <p>
-      Hi, I'm Nina — a senior Computer Information Technologies student with an
-      interest in cybersecurity, user-friendly design, and building interactive tools.
+      💻 GitHub:
+      <a href="https://github.com/n-nasib" target="_blank" rel="noopener noreferrer">
+        github.com/n-nasib
+      </a>
     </p>
+    <p class="footer-note">Educational project — no passwords are stored.</p>
+  </footer>
 
-    <p>
-      This project analyzes password strength using scoring, pattern detection,
-      and basic security principles to help users understand how secure their
-      passwords are.
-    </p>
-  </div>
-</section>
-
-<footer class="footer">
-  <h3>🎀 Password Analyzer 🎀</h3>
-
-  <p>Made with 💖 by Nina</p>
-
-  <p>
-    💻 GitHub:
-    <a href="https://github.com/n-nasib" target="_blank" rel="noopener noreferrer">
-      github.com/n-nasib
-    </a>
-  </p>
-
-  <p class="footer-note">
-    Educational project — no passwords are stored or transmitted.
-  </p>
-</footer>
+  <script src="script.js"></script>
+</body>
+</html>
