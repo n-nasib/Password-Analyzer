@@ -1,14 +1,23 @@
-function togglePassword() {
-  const input = document.getElementById("password");
-  input.type = input.type === "password" ? "text" : "password";
-}
+const passwordInput = document.getElementById("password");
+const showPasswordCheckbox = document.getElementById("showPassword");
+const analyzeBtn = document.getElementById("analyzeBtn");
+const crackTime = document.getElementById("crackTime");
+const strengthLevel = document.getElementById("strengthLevel");
+const analysisGrid = document.getElementById("analysisGrid");
+const recommendList = document.getElementById("recommendList");
+
+showPasswordCheckbox.addEventListener("change", function () {
+  if (this.checked) {
+    passwordInput.type = "text";
+  } else {
+    passwordInput.type = "password";
+  }
+});
+
+analyzeBtn.addEventListener("click", analyzePassword);
 
 function analyzePassword() {
-  const password = document.getElementById("password").value;
-  const crackTime = document.getElementById("crackTime");
-  const strengthLevel = document.getElementById("strengthLevel");
-  const analysisGrid = document.getElementById("analysisGrid");
-  const recommendList = document.getElementById("recommendList");
+  const password = passwordInput.value;
 
   if (!password) {
     crackTime.textContent = "Please enter a password";
@@ -24,7 +33,7 @@ function analyzePassword() {
   let digit = 0;
   let symbol = 0;
 
-  for (let ch of password) {
+  for (const ch of password) {
     if (ch >= "a" && ch <= "z") {
       lower++;
     } else if (ch >= "A" && ch <= "Z") {
@@ -89,7 +98,7 @@ function analyzePassword() {
 
   crackTime.textContent = time;
   strengthLevel.textContent = strength;
-  strengthLevel.className = `strength-level ${strengthClass}`;
+  strengthLevel.className = "strength-level " + strengthClass;
 
   analysisGrid.innerHTML = `
     <div class="analysis-card"><strong>Length:</strong> ${password.length}</div>
@@ -102,36 +111,18 @@ function analyzePassword() {
     <div class="analysis-card"><strong>Score:</strong> ${score}/100</div>
   `;
 
-  let suggestions = [];
+  const suggestions = [];
 
-  if (password.length < 12) {
-    suggestions.push("Use 12 or more characters.");
-  }
-  if (lower === 0) {
-    suggestions.push("Add lowercase letters.");
-  }
-  if (upper === 0) {
-    suggestions.push("Add uppercase letters.");
-  }
-  if (digit === 0) {
-    suggestions.push("Add numbers.");
-  }
-  if (symbol === 0) {
-    suggestions.push("Add symbols like ! @ # $ %.");
-  }
-  if (repeated) {
-    suggestions.push("Avoid repeated characters like aa or 11.");
-  }
-  if (sequence) {
-    suggestions.push("Avoid predictable sequences like 1234 or abcd.");
-  }
+  if (password.length < 12) suggestions.push("Use 12 or more characters.");
+  if (lower === 0) suggestions.push("Add lowercase letters.");
+  if (upper === 0) suggestions.push("Add uppercase letters.");
+  if (digit === 0) suggestions.push("Add numbers.");
+  if (symbol === 0) suggestions.push("Add symbols like ! @ # $ %.");
+  if (repeated) suggestions.push("Avoid repeated characters like aa or 11.");
+  if (sequence) suggestions.push("Avoid predictable sequences like 1234 or abcd.");
   if (suggestions.length === 0) {
     suggestions.push("Nice job — this password passed the main checks in this analyzer.");
   }
 
   recommendList.innerHTML = suggestions.map(item => `<li>${item}</li>`).join("");
-
-  document.getElementById("analysisSection").scrollIntoView({
-    behavior: "smooth"
-  });
 }
